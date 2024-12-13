@@ -1,11 +1,21 @@
 const express = require("express");
 const { loginUser, registerUser } = require("../controllers/auth");
+const passport = require("passport");
 const router = express.Router();
 
-// REGISTER ROUTER
-router.post("/login", loginUser);
+// login ROUTER
+router.post(
+  "/login",
+  passport.authenticate("local", 
+    { 
+      failureRedirect: "/register", 
+    // failureFlash: true 
+  }
+),
+  loginUser
+);
 
-//LOGIN ROUTER
+//register ROUTER
 router.post("/register", registerUser);
 
-module.exports=router;
+module.exports = router;

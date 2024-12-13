@@ -1,10 +1,9 @@
 const Prospect = require("../models/Prospect");
 
 // CREATE DONOR
-
 const createProspect = async (req, res) => {
   try {
-    const newProspect = Prospect(req.body);
+    const newProspect = new Prospect(req.body);
     const prospect = await newProspect.save();
     res.status(201).json(prospect);
   } catch (error) {
@@ -41,7 +40,8 @@ const updateProspect = async (req, res) => {
 // GET ONE DONOR
 const getOneProspect = async (req, res) => {
   try {
-    const prospect = await Prospect.findById(req.params.id);
+    // let{id} = req.params;
+    const prospect = await Prospect.findById(req.params._id);
     res.status(200).json(prospect);
   } catch (error) {
     res.status(500).json(error);
