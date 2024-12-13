@@ -7,6 +7,7 @@ const {
   deleteDonor,
   getDonorsStats,
 } = require("../controllers/donor");
+
 const { verifyTokenAndAuthorization } = require("../middlewares/verifyToken");
 // const { verifyToken } = require("../middlewares/verifyToken");
 const router = express.Router();
