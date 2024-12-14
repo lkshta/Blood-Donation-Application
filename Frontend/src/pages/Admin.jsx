@@ -2,41 +2,40 @@ import { Gauge } from "@mui/x-charts/Gauge";
 import { LineChart } from "@mui/x-charts/LineChart";
 import { FaUser } from "react-icons/fa";
 import { PieChart } from "@mui/x-charts/PieChart";
-// import { useEffect, useState } from "react";
-// import { publicRequest } from "../requestMethods";
-// import {logout } from "../redux/userRedux" 
-// import {useDispatch} from "react-redux";
-// import {useNavigate} from "react-router-dom";
+import { useEffect, useState } from "react";
+import { publicRequest } from "../requestMethod";
+import {logout } from "../redux/userRedux" 
+import {useDispatch} from "react-redux";
+import {useNavigate} from "react-router-dom";
 
 const Admin = () => {
-//   const [bloodGroupData, setBloodGroupData] = useState([]);
-//   const dispatch = useDispatch();
-//   const navigate = useNavigate();
+  const [bloodGroupData, setBloodGroupData] = useState([]);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-//   useEffect(() => {
-//     const getBloodGroupStats = async() => {
-//       try {
-//         const res = await publicRequest.get("/donors/stats");
+  useEffect(() => {
+    const getBloodGroupStats = async() => {
+      try {
+        const res = await publicRequest.get("/donors/stats");
           
-//         const transformedData = res.data.map((item, index) => ({
-//           id: index,
-//           value: item.count,
-//           label: `Blood Group ${item._id}`,
-//         }));
+        const transformedData = res.data.map((item, index) => ({
+          id: index,
+          value: item.count,
+          label: `Blood Group ${item._id}`,
+        }));
 
-//         setBloodGroupData(transformedData);
-//       } catch (error) {
-//         console.log(error);
-//       }
-//     };
+        setBloodGroupData(transformedData);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getBloodGroupStats();
+  }, []);
 
-//     getBloodGroupStats();
-//   }, []);
-
-// const handleLogout = () =>{
-// dispatch(logout());
-// navigate("/login");
-// }
+const handleLogout = () =>{
+dispatch(logout());
+navigate("/login");
+}
 
 
 
@@ -87,7 +86,7 @@ const Admin = () => {
         <div className="flex items-center m-[20px] cursor-pointer">
           <FaUser />
           <span className="ml-[10px] font-semibold" 
-          // onClick={handleLogout}
+          onClick={handleLogout}
           >Logout</span>
         </div>
 
@@ -103,7 +102,7 @@ const Admin = () => {
         <PieChart
           series={[
             {
-              // data: bloodGroupData,
+              data: bloodGroupData,
               data:[
               {id:0,value:10,label:"Blood Group A"},
               {id:1,value:15,label:"Blood Group O+"},

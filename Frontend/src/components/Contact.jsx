@@ -1,26 +1,26 @@
 import { useState } from "react";
-// import { publicRequest } from "../requestMethods";
-// import { ToastContainer, toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
+import { publicRequest } from "../requestMethod";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Contact = () => {
-//   const [inputs, setInputs] = useState({});
+  const [inputs, setInputs] = useState({});
 
-//   const handleChange = (e) => {
-//     setInputs((prev) => {
-//       return { ...prev, [e.target.name]: e.target.value };
-//     });
-//   };
+  const handleChange = (e) => {
+    setInputs((prev) => {
+      return { ...prev, [e.target.name]: e.target.value };
+    });
+  };
 
-//   const handleProspect = async () => {
-//     try {
-//       await publicRequest.post("/donors", inputs);
-//       toast.success("You've been successfully added to the database");
-//       setInputs({});
-//     } catch (error) {
-//       toast.warning(error.message);
-//     }
-//   };
+  const handleProspect = async () => {
+    try {
+      await publicRequest.post("/donors", inputs);
+      toast.success("You've been successfully added to the database");
+      setInputs({});
+    } catch (error) {
+      toast.warning(error.message);
+    }
+  };
 
   return (
     <div className="flex items-center justify-center my-[100px]">
@@ -36,8 +36,8 @@ const Contact = () => {
           className="w-[350px] p-[15px]"
           placeholder="John Doe"
           name="name"
-        //   value={inputs.name || ""}
-        //   onChange={handleChange}
+          value={inputs.name || ""}
+          onChange={handleChange}
         />
         <label htmlFor="" className="text=[18px] mt-[10px] font-semibold">
           Telephone
@@ -47,8 +47,8 @@ const Contact = () => {
           className="w-[350px] p-[15px]"
           placeholder="3582839303"
           name="tel"
-        //   value={inputs.tel || ""}
-        //   onChange={handleChange}
+          value={inputs.tel || ""}
+          onChange={handleChange}
         />
         <label htmlFor="" className="text=[18px] mt-[10px] font-semibold">
           Email
@@ -56,8 +56,8 @@ const Contact = () => {
         <input
           type="email"
           name="email"
-        //   value={inputs.email || ""}
-        //   onChange={handleChange}
+          value={inputs.email || ""}
+          onChange={handleChange}
           className="w-[350px] p-[15px]"
           placeholder="johndoe@example.com"
           required
@@ -70,8 +70,8 @@ const Contact = () => {
           className="w-[350px] p-[15px]"
           placeholder="123 Town Street"
           name="address"
-        //   value={inputs.address || ""}
-        //   onChange={handleChange}
+          value={inputs.address || ""}
+          onChange={handleChange}
         />
         <label htmlFor="" className="text=[18px] mt-[10px] font-semibold">
           Weight
@@ -81,16 +81,16 @@ const Contact = () => {
           className="w-[350px] p-[15px]"
           placeholder="50kg"
           name="weight"
-        //   value={inputs.weight || ""}
-        //   onChange={handleChange}
+          value={inputs.weight || ""}
+          onChange={handleChange}
         />
         <label htmlFor="" className="text=[18px] mt-[10px] font-semibold">
           Blood Group
         </label>
         <select
           name="bloodgroup"
-        //   value={inputs.bloodgroup || ""}
-        //   onChange={handleChange}
+          value={inputs.bloodgroup || ""}
+          onChange={handleChange}
           className="w-[350px] p-[15px]"
         >
           <option value="">Select Blood Group</option>
@@ -116,17 +116,17 @@ const Contact = () => {
           className="w-[350px] p-[15px]"
           placeholder="N/A"
           name="diseases"
-        //   value={inputs.diseases || ""}
-        //   onChange={handleChange}
+          value={inputs.diseases || ""}
+          onChange={handleChange}
         />
 
         <button
           className="bg-red-500 p-3 mt-3 w-[350px] cursor-pointer text-white"
-        //   onClick={handleProspect}
+          onClick={handleProspect}
         >
           Submit
         </button>
-        {/* <ToastContainer /> */}
+        <ToastContainer />
       </div>
     </div>
   );
