@@ -1,9 +1,9 @@
 const Prospect = require("../models/Prospect");
 
-// CREATE DONOR
+// CREATE propsect
 const createProspect = async (req, res) => {
   try {
-    const newProspect = new Prospect(req.body);
+    const newProspect = Prospect(req.body);
     const prospect = await newProspect.save();
     res.status(201).json(prospect);
   } catch (error) {
@@ -11,7 +11,7 @@ const createProspect = async (req, res) => {
   }
 };
 
-// GET ALL DONORS
+// GET ALL propsect
 
 const getAllProspects = async (req, res) => {
   try {
@@ -22,7 +22,7 @@ const getAllProspects = async (req, res) => {
   }
 };
 
-// UPDATE DONOR
+// UPDATE propsect
 
 const updateProspect = async (req, res) => {
   try {
@@ -37,7 +37,7 @@ const updateProspect = async (req, res) => {
   }
 };
 
-// GET ONE DONOR
+// GET ONE propsect
 const getOneProspect = async (req, res) => {
   try {
     // let{id} = req.params;
@@ -48,7 +48,7 @@ const getOneProspect = async (req, res) => {
   }
 };
 
-// DELETE DONOR
+// DELETE propsect
 
 const deleteProspect = async (req, res) => {
   try {
